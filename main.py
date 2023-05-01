@@ -13,10 +13,15 @@ async def ping(ctx):
 
 @bot.event
 async def on_ready():
+    try:
+        await bot.load_extension('oretweaker')  # Load the OreTweaker extension
+        await bot.load_extension('worldgen')  # Load the Worldgen extension
+    except Exception as e:
+        print(f"Failed to load extension 'oretweaker': {e}")
     await bot.change_presence(
         activity=discord.Activity(
-            type=discord.ActivityType.custom,
-            name="Chilling in the fridge 🧊"
+            type=discord.ActivityType.listening,
+            name="!help"
         )
     )
     print(f"Bot connected as {bot.user.name}")
