@@ -1,4 +1,4 @@
-import sys
+import os
 import discord
 from discord.ext import commands
 
@@ -24,4 +24,4 @@ async def on_ready():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    bot.run(sys.argv[1])
+    bot.run(os.getenv("secret"))
